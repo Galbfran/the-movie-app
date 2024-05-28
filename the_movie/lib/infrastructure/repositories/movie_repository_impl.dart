@@ -1,0 +1,14 @@
+import 'package:the_movie/domain/datasources/movies_datasource.dart';
+import 'package:the_movie/domain/entities/movie.dart';
+import 'package:the_movie/domain/repositories/movies_repository.dart';
+
+class MoviesRepositoryImpl implements MoviesRepository {
+  final MoviesDatasource datasource;
+
+  MoviesRepositoryImpl(this.datasource);
+
+  @override
+  Future<List<Movie>> getNowPlaying({int page = 1}) {
+    return datasource.getMovies(page: page);
+  }
+}
